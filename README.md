@@ -10,7 +10,7 @@ Features:
 
 _______________________
 Due to arrive:
-1. Account deletion - the user will be able to delete their own account (will not be able to delete someone elses account)
+1. Account deletion - the user will be able to delete their own account (will not be able to delete someone else's account)
 2. Hash function rework
 3. Email correctness - the user has to have a "@" sign and a valid domain name
 4. Quality of life update
