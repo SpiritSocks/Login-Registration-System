@@ -8,8 +8,9 @@ Features:
 2. Password protection - passwords saved to the database2.csv file are hashed (encrypted) using a "homemade" hash fucntion.
 3. Simplicity - the program is easy to use
 
-Future features:
+_______________________
+Due to arrive:
 1. Account deletion - the user will be able to delete their own account (will not be able to delete someone elses account)
 2. Hash function rework
 3. Email correctness - the user has to have a "@" sign and a valid domain name
-4. Quality of life update 
+4. Quality of life update
