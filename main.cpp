@@ -3,7 +3,7 @@
 int main() {
     RefreshAccountMem();
     std::string input;
-
+    bool clear = false;
     do {
         if (container.empty()) {
             std::cout << "No accounts exist, please create one." << std::endl;
@@ -12,12 +12,23 @@ int main() {
             std::getline(std::cin, name);
             std::cout << "Please enter password:" << std::endl;
             std::getline(std::cin, password);
-            std::cout << "Please enter email:" << std::endl;
-            std::getline(std::cin, email);
-            AddAccount(Account(name, Hash(password), email));
+            while (clear==false){
+                std::cout << "Please enter a valid email:" << std::endl;
+                std::getline(std::cin, email);
+                ValidEmailAddress(email);
+                if (ValidEmailAddress(email)) {
+                    AddAccount(Account(name, Hash(password), email));
+                    clear = true;
+                }else {
+                    std::cout<<"Invalid email address"<<std::endl;
+                    clear=false;
+                }
+            }
             std::cout << "Account added." << std::endl;
             continue;
         }
+
+        clear=false;
 
         std::cout << "Enter account username (or type 'exit' to quit):" << std::endl;
         std::getline(std::cin, input);
@@ -25,6 +36,13 @@ int main() {
         if (input == "exit") {
             std::cout << "Exiting program." << std::endl;
             break;
+        }
+
+        if (input == "delete") {
+            std::cout << "Enter account username:" << std::endl;
+            std::getline(std::cin, input);
+            DeleteAccount(input, container);
+            continue;
         }
 
         bool found = false;
@@ -45,10 +63,18 @@ int main() {
                 std::string password, email;
                 std::cout << "Enter password:" << std::endl;
                 std::getline(std::cin, password);
-                std::cout << "Enter email:" << std::endl;
-                std::getline(std::cin, email);
-                AddAccount(Account(input, Hash(password), email));
-                std::cout << "Account successfully created." << std::endl;
+                while (clear==false) {
+                    std::cout << "Enter email:" << std::endl;
+                    std::getline(std::cin, email);
+                    if (ValidEmailAddress(email)) {
+                        AddAccount(Account(input, Hash(password), email));
+                        std::cout << "Account successfully created." << std::endl;
+                        clear=true;
+                    }else {
+                        std::cout << "Invalid email address" << std::endl;
+                        clear=false;
+                    }
+                }
             } else {
                 std::cout << "Account creation cancelled." << std::endl;
             }
