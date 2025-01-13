@@ -5,7 +5,7 @@
 #include <fstream>
 void AddAccount(Account newAcc) {
     std::ofstream file;
-    file.open("/Users/valerat/Desktop/C++/Login_&_Registration_System/database2.csv", std::ios::app);
+    file.open("/Users/***/***/***/Login_&_Registration_System/database2.csv", std::ios::app);
     if (!file.is_open()) {
         std::cerr << "Error opening database file" << std::endl;
         return;
@@ -17,7 +17,7 @@ void AddAccount(Account newAcc) {
 
 void RefreshAccountMem() {
     std::ifstream file;
-    file.open("/Users/valerat/Desktop/C++/Login_&_Registration_System/database2.csv", std::ios::in);
+    file.open("/Users/***/***/***/Login_&_Registration_System/database2.csv", std::ios::in);
     if (!file.is_open()) {
         std::cerr << "Error opening database file" << std::endl;
         return;
@@ -45,7 +45,7 @@ void RefreshAccountMem() {
 void DeleteAccount(std::string &name, std::vector<Account> &container) {
 
     //Opening file for reading
-    std::ifstream file("/Users/valerat/Desktop/C++/Login_&_Registration_System/database2.csv");
+    std::ifstream file("/Users/***/***/***/Login_&_Registration_System/database2.csv");
     if (!file.is_open()) {
         std::cerr << "Error opening database file" << std::endl;
         return;
@@ -97,7 +97,7 @@ void DeleteAccount(std::string &name, std::vector<Account> &container) {
     }
 
     //Rewriting the file without the deleted account
-    std::ofstream outFile("/Users/valerat/Desktop/C++/Login_&_Registration_System/database2.csv", std::ios::trunc);
+    std::ofstream outFile("/Users/***/***/***/Login_&_Registration_System/database2.csv", std::ios::trunc);
     if (!outFile.is_open()) {
         std::cerr << "Error opening file for writing" << std::endl;
         return;
@@ -121,7 +121,7 @@ bool ValidEmailAddress(std::string &emailAddress) {
         return false;
     }
     std::ifstream domainsfile;
-    domainsfile.open("/Users/valerat/Desktop/C++/Login_&_Registration_System/domains.txt");
+    domainsfile.open("/Users/***/***/***/Login_&_Registration_System/domains.txt");
     std::string textLine;
     while (std::getline(domainsfile, textLine)) {
         if (emailAddress.substr(emailAddress.find('@')+1, textLine.length()) == textLine) {
